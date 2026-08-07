@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import ChatBubble from "../components/ChatBubble";
 import { sendChatMessage } from "../services/chatService";
 
@@ -11,7 +12,6 @@ function ChatPage() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [isSending, setIsSending] = useState(false);
-  const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -48,7 +48,6 @@ function ChatPage() {
     setMessages(updatedMessages);
     setInputValue("");
     setIsSending(true);
-    setError(null);
 
     try {
       // conversation_history sent to the API is everything before this
@@ -57,7 +56,7 @@ function ChatPage() {
       const reply = await sendChatMessage(destination, trimmedMessage, messages);
       setMessages([...updatedMessages, { role: "assistant", content: reply }]);
     } catch (err) {
-      setError(err.message);
+      toast.error(err.message);
     } finally {
       setIsSending(false);
     }
@@ -93,10 +92,6 @@ function ChatPage() {
         )}
         <div ref={messagesEndRef} />
       </div>
-
-      {error && (
-        <p className="text-red-500 text-sm mb-2">{error}</p>
-      )}
 
       <form onSubmit={handleSend} className="flex gap-2 pt-2 border-t border-gray-200">
         <input

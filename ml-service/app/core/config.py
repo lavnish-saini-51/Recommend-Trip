@@ -5,7 +5,7 @@ load_dotenv()
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
-MISTRAL_MODEL = "mistral-small-latest"
+MISTRAL_MODEL = "mistral-medium-3-5"
 
 if not MISTRAL_API_KEY:
     # We don't crash the whole app on import (so /recommend still works

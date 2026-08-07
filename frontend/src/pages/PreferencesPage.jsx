@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import FormSlider from "../components/FormSlider";
 import { getRecommendations } from "../services/recommendService";
 
@@ -41,7 +42,6 @@ function PreferencesPage() {
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState(null);
 
   const handleInterestChange = (key, value) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -70,17 +70,17 @@ function PreferencesPage() {
     e.preventDefault();
 
     if (!validateForm()) {
+      toast.error("Please fix the errors in the form before continuing.");
       return;
     }
 
     setIsSubmitting(true);
-    setSubmitError(null);
 
     try {
       const recommendations = await getRecommendations(formData);
       navigate("/results", { state: { recommendations } });
     } catch (error) {
-      setSubmitError(error.message);
+      toast.error(error.message);
     } finally {
       setIsSubmitting(false);
     }
@@ -177,10 +177,6 @@ function PreferencesPage() {
             />
           ))}
         </div>
-
-        {submitError && (
-          <p className="text-red-500 text-sm mb-4">{submitError}</p>
-        )}
 
         <button
           type="submit"
