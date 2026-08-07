@@ -1,8 +1,8 @@
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers.recommend_router import router as recommend_router
+from app.routers.chat_router import router as chat_router
 
 app = FastAPI(
     title="RecommendTrip ML Service",
@@ -21,6 +21,7 @@ app.add_middleware(
 )
 
 app.include_router(recommend_router)
+app.include_router(chat_router)
 
 
 @app.get("/")
