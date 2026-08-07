@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
 import PreferencesPage from "./pages/PreferencesPage";
 import ResultsPage from "./pages/ResultsPage";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/preferences" element={<PreferencesPage />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="/chat" element={<ChatPage />} />
         </Routes>
       </div>
       <Footer />
