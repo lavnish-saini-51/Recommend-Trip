@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
+import PreferencesPage from "./pages/PreferencesPage";
+import ResultsPage from "./pages/ResultsPage";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/preferences" element={<PreferencesPage />} />
+          <Route path="/results" element={<ResultsPage />} />
         </Routes>
       </div>
       <Footer />
