@@ -1,0 +1,70 @@
+# =========================
+# Node.js / React / Vite
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Environment variables
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# =========================
+# Python
+# =========================
+ml-service/.venv/
+ml-service/__pycache__/
+ml-service/**/*.pyc
+ml-service/**/*.pyo
+ml-service/**/*.pyd
+ml-service/.pytest_cache/
+ml-service/.mypy_cache/
+ml-service/.ruff_cache/
+ml-service/.coverage
+ml-service/htmlcov/
+ml-service/.Python
+ml-service/.python-version
+
+# Virtual environment
+ml-service/env/
+ml-service/venv/
+
+# Environment variables
+ml-service/.env
+ml-service/.env.*
+!ml-service/.env.example
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Build / Temp
+# =========================
+*.log
+*.tmp
+*.swp
+*.swo
+
+# =========================
+# Secrets
+# =========================
+*.pem
+*.key
+*.crt

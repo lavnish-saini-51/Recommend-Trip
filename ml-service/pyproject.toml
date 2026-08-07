@@ -1,0 +1,16 @@
+[project]
+name = "ml-service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.141.1",
+    "joblib>=1.5.3",
+    "kaggle>=2.2.4",
+    "numpy>=2.5.1",
+    "pandas>=3.0.5",
+    "requests>=2.34.2",
+    "scikit-learn>=1.9.0",
+    "uvicorn[standard]>=0.52.1",
+]

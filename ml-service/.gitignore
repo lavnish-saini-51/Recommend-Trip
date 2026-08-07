@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Trained model artifacts (optional - remove if you want to version them)
+app/ml/trained_model/*.joblib
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
