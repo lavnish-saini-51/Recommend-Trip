@@ -1,11 +1,13 @@
 import joblib
 import pandas as pd
+from pathlib import Path
 
 from app.schemas.recommend_schema import RecommendRequest, RecommendedDestination
 
-MODEL_PATH = "app/ml/trained_model/knn_model.joblib"
-SCALER_PATH = "app/ml/trained_model/scaler.joblib"
-PROCESSED_DATA_PATH = "app/ml/data/processed_destinations.csv"
+ML_SERVICE_ROOT = Path(__file__).resolve().parents[2]
+MODEL_PATH = ML_SERVICE_ROOT / "app/ml/trained_model/knn_model.joblib"
+SCALER_PATH = ML_SERVICE_ROOT / "app/ml/trained_model/scaler.joblib"
+PROCESSED_DATA_PATH = ML_SERVICE_ROOT / "app/ml/data/processed_destinations.csv"
 
 FEATURE_COLUMNS = [
     "budget_ordinal",
